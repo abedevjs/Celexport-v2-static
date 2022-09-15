@@ -1,0 +1,335 @@
+.gradeContainer {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  margin-bottom: 6.4rem;
+
+  &__image {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    transition: $slow;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 80%;
+    }
+
+    span {
+      font-size: 2.4rem;
+      font-weight: 700;
+    }
+
+    &--ABCD {
+    }
+  }
+}
+
+.formContainer {
+  // transform: translateX(100rem);
+  margin: 0 auto;
+  padding: 4rem;
+  background-color: $color-grey-light-2;
+  // transition: all 10s;
+
+  display: none;
+  grid-gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+  h4,
+  button {
+    align-self: center;
+    justify-self: baseline;
+  }
+
+  button {
+    justify-self: center;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Aleo", serif;
+    font-size: 1.7rem;
+    gap: 0.5rem;
+
+    p,
+    label,
+    input {
+      font-size: 1.7rem;
+      font-family: inherit;
+    }
+
+    span {
+      font-size: 2.4rem;
+    }
+
+    label {
+      //test
+    }
+
+    input {
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      //   font-size: 1.7rem;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: $color-grey-dark;
+
+      &:focus {
+        outline: none;
+        border-bottom: 2px solid $color-secondary-light;
+      }
+
+      &:focus:invalid {
+        //ini untuk inform user klo input yang mereka masukkan salah
+        border-bottom: 2px solid red;
+      }
+    }
+
+    select {
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      font-size: inherit;
+
+      option {
+        font-family: inherit;
+        font-size: 1.6rem;
+        color: $color-grey-dark;
+      }
+    }
+  }
+}
+
+.quoteSummary {
+  padding: 2rem;
+  font-size: $paragraph-font-size;
+  line-height: 1.5;
+
+  @include respond(small-phone) {
+    padding: 0rem;
+    font-size: 1.4rem;
+    line-height: 1.7;
+  }
+
+  &__content {
+    display: flex;
+
+    @include respond(small-phone) {
+      flex-direction: column;
+    }
+  }
+}
+
+.quoteLeft {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 1rem;
+
+  // grid-template-rows: repeat(4, 1fr);
+  @include respond(phone) {
+    //600px/37.5em. 5px/16px = 31.25%
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include respond(small-phone) {
+    padding: 0rem;
+  }
+
+  &__list {
+    ul {
+      list-style: none;
+      margin-left: 1rem;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        display: inline-block;
+        padding-bottom: 2px;
+        transition: $slow;
+
+        &:hover {
+          color: $color-primary-dark;
+        }
+      }
+    }
+
+    &--1 {
+      grid-column: 1 / 4;
+    }
+
+    &--2 {
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+    }
+
+    &--3 {
+      grid-column: 3 / 4;
+    }
+
+    &--4 {
+      grid-column: 1 / 4;
+      grid-row: 3 / 4;
+    }
+
+    &--5 {
+      grid-column: 1 / 4;
+      grid-row: 4 / 5;
+    }
+
+    &--2,
+    &--3,
+    &--4,
+    &--5 {
+      h5 {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+.quoteCTA {
+  grid-column: 1 / 4;
+  margin-top: 2rem;
+
+  @include respond(phone) {
+    //600px/37.5em. 5px/16px = 31.25%
+  }
+
+  p {
+    margin-bottom: 2rem;
+
+    a:link,
+    a:visited {
+      text-decoration: none;
+      color: $color-primary-light;
+    }
+
+    a:hover,
+    a:active {
+      color: $color-grey-dark;
+      background-position: 100%;
+    }
+  }
+
+  &__box {
+    display: flex;
+    gap: 0.3rem;
+
+    img {
+      height: 7rem;
+      width: 7rem;
+      border-radius: 50%;
+      margin-right: 1rem;
+
+      @include respond(phone) {
+        //600px/25em. 4px/16px = 25%
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    &--text {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      margin-right: 1rem;
+    }
+
+    &--icon {
+      align-self: center;
+
+      a {
+        svg {
+          height: 2.8rem;
+          width: 2.8rem;
+          margin-right: 0rem;
+        }
+      }
+    }
+  }
+}
+
+.quoteRight {
+  flex: 0 0 30%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    display: block;
+    height: 20rem;
+    width: auto;
+    align-self: center;
+
+    @include respond(phone) {
+      height: 15rem;
+    }
+  }
+
+  &--button,
+  &--text {
+    align-self: center;
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      align-self: center;
+    }
+  }
+}
+
+.quotePriceList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 1rem;
+
+  @include respond(phone) {
+    //600px/37.5em. 5px/16px = 31.25%
+    // flex-direction: column;
+  }
+
+  &__fob {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  &__fob,
+  &__cfr,
+  &__cif {
+    // margin-top: 1rem;
+
+    @include respond(phone) {
+      //600px/37.5em. 5px/16px = 31.25%
+      // margin-left: 1rem;
+    }
+
+    &--numbers {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+
+      em {
+        font-weight: 700;
+      }
+    }
+
+    p {
+      font-weight: 100;
+      margin-left: 1rem;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+//COLORS
+$color-primary: #7c2d12;
+$color-primary-dark: #ea580c;
+$color-primary-light: #fd7e14; //fd7e14
+
+$color-secondary-dark: #05c46b;
+$color-secondary-light: #0be881;
+$color-secondary-verylight: #b2f2bb;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-light-3: #f8f9fa;
+$color-grey-light-4: #e9ecef;
+
+$color-grey-dark: #555;
+$color-grey-dark-1: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+//FONT
+/*
+Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+Spacing system (px)
+2 / 4 / 8 / 12 / 14 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+$paragraph-font-size: 1.6rem;
+$title-font-size: 1.8rem;
+
+$letterSpace-title: -1px;
+$letterSpace-paragraph: 0.7px;
+
+//ANIMATION
+$slow: all 0.3s;
+$fast: all 0.1s;

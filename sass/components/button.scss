@@ -1,0 +1,80 @@
+.btnMain {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  font-size: 1.7rem;
+  letter-spacing: 1.1px;
+  font-weight: 700;
+
+  padding: 1.6rem 2rem;
+  cursor: pointer;
+  transition: $slow;
+
+  @include respond(tab-port) {
+    //56.25em
+    font-size: 1.6rem;
+    padding: 1rem 1.6rem;
+  }
+
+  @include respond(phone) {
+    //37.5em
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+  }
+
+  &__green {
+    background-color: $color-secondary-light;
+    color: $color-grey-dark-3;
+
+    &:hover,
+    &:active {
+      background-color: $color-secondary-dark;
+    }
+  }
+
+  &__orange {
+    background-color: $color-primary-light;
+    color: $color-grey-light-2;
+
+    &:hover,
+    &:active {
+      background-color: $color-primary-dark;
+    }
+  }
+}
+
+.btnSecond,
+.btnTab,
+.btnSubmit {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+
+  border: 1px solid $color-primary-light;
+  background-color: transparent;
+  color: $color-primary-light;
+
+  padding: 1rem 1.8rem;
+  cursor: pointer;
+  transition: $slow;
+
+  @include respond(tab-port) {
+    //56.25em
+    font-size: 1.5rem;
+    padding: 0.8rem 1.4rem;
+  }
+
+  @include respond(phone) {
+    //37.5em
+    font-size: 1.3rem;
+    padding: 0.7rem 1.3rem;
+  }
+
+  &:hover,
+  &:active {
+    background-color: $color-primary-light;
+    color: $color-white;
+  }
+}

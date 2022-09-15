@@ -1,0 +1,44 @@
+table {
+  width: 100%;
+  // border: 1px solid $color-grey-dark;
+  border-collapse: collapse;
+  font-size: $paragraph-font-size;
+  letter-spacing: $letterSpace-paragraph;
+
+  margin-bottom: 4.8rem;
+
+  @include respond(tab-port) {
+    //56em 900px
+    font-size: 1.4rem; //7px/16px = 0.4375
+  }
+
+  @include respond(phone) {
+    //43em 700px
+    margin-bottom: 2rem;
+  }
+
+  // @include respond(small-phone) {
+  //   //34em 550px
+  //   font-size: 1.2rem; //7px/16px = 0.4375
+  // }
+}
+
+th,
+td {
+  padding: 1rem 2rem;
+  text-align: left;
+  line-height: 1.5;
+}
+
+th {
+  background-color: $color-secondary-verylight;
+  color: $color-black;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: $color-grey-light-3;
+}
+
+tbody tr:nth-child(even) {
+  background-color: $color-grey-light-4;
+}

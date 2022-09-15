@@ -1,0 +1,29 @@
+.hero-text {
+  flex: 100%;
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
+}
+
+.hero-image {
+  flex: 100%;
+  display: flex;
+  justify-content: center;
+
+  @include respond(tab-port) {
+    //56.25em
+    //width less than 900
+    display: none;
+  }
+
+  img {
+    display: inline-block;
+    width: 80%;
+
+    @include respond(tab-land) {
+      width: 70%;
+    }
+  }
+}

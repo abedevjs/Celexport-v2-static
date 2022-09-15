@@ -1,0 +1,113 @@
+*Goals
+	Business goals: Selling premium nutmeg (QUOTATION)(CONTACT US)
+	User goals: Finding INFORMATION about: quality, safety, regulations, payment, fit in container, price
+	Does not need 'How it works' feature
+	Clarity over cleverness
+	"The site must be informative in a good presentation (unique/asymetrical layout)"
+
+*Audience
+	Serious b2b company owners, purchaser.
+	Above 40 years old.
+	Looking for experience
+	Looking for reliability
+	Looking for expert
+	Does not really care about high tech
+	Has an established company more than 10 years
+
+*Personality (combined)
+	Serious/Elegant/Professional (Main attitude)
+	Calm/Nature (Second attitude)
+
+=============== LAYOUT ===============
+	Creative, Asymmetrical, yet Informative
+
+=============== COLOR ===============
+
+*Color Palette
+	Main: Orange Bold/Brown
+	Accent: Green / Orange nutmeg
+	Grey: Grey bold
+	Use Gradient (sesuaikan dgn personality)
+
+=============== TYPOGRAPHY ===============4160 3120
+
+*Break up long text with sub-headings, images, block quotes, bullet points, etc	
+
+*Font-style
+	Serif (Merriweather, Aleo, Playfair Display, Cormorant, Cardo, Lora, Biz)
+	Title: Aleo
+	Paragraph: Merriweather
+
+*Fonts-size
+	16px to 32px
+
+*Font-weight
+	Dont make text too light.
+	Use a tool to check contrast between text and background colors
+	Normal text: at least 4.5:1
+	Large text: at least 3:1(18px+)
+
+*Line-height (the smaller/longer text = the larger line height)
+	Big text/Title: Below 1.5
+	Normal text/paragraph: 1.5 - 2
+
+*Letter-space
+	Big text/Title: Narrow (Ex: -3px)
+	Normal text/paragraph: Large (Above 0px)
+
+*Justify-content
+	Usually, dont justify text
+	Dont center long text blocks. Small blocks are fine
+	
+=============== IMAGE ===============	
+
+*Photo types
+	Product photos (pala nya)
+	Storytelling photos (lg tanam, lg petik, lg sortir, lg mengeringkan, lg packing)
+	Illustration photos (ex: gambar supply chain dll)
+	
+=============== ICONS ===============
+	no icons
+	Use icons for bullet points
+	thin icons or lines if necessary
+
+=============== SHADOWS ===============
+	no shadows
+
+=============== ROUND CORNER ===============
+	no rounds
+
+=============== IMAGE ===============
+
+*BIG high-quality images
+
+=============== BEM ===============
+Block Element Modifier
+photo
+photo__framed
+photo__framed--big
+photo__framed--small
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

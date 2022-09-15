@@ -1,0 +1,160 @@
+.blanket,
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100rem;
+  background-color: $color-grey-light-3;
+  padding: 4rem 5rem;
+  //   box-shadow: 0 4rem 6rem rgb(0 0 0 / 10%);
+  z-index: 1000;
+  transition: all 0.5s;
+
+  @include respond(tab-port) {
+    //56.25em 900px
+    width: 80rem;
+  }
+
+  @include respond(phone) {
+    width: 70rem;
+    padding: 3rem;
+  }
+
+  @include respond(small-phone) {
+    width: 38rem;
+  }
+
+  span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1.6rem;
+
+    @include respond(small-phone) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__container {
+    margin-top: 3.2rem;
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    @include respond(small-phone) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__download {
+    flex: 60%;
+    gap: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include respond(small-phone) {
+      align-items: center;
+    }
+
+    span {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    a {
+      color: $color-grey-dark;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.6rem;
+      transition: $fast;
+
+      &:hover {
+        color: $color-primary-light;
+      }
+    }
+  }
+
+  &__form {
+    font-family: "Aleo", serif;
+    font-size: 1.7rem;
+    flex: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2rem;
+
+    @include respond(small-phone) {
+      font-size: 1.6rem;
+      gap: 1rem;
+    }
+
+    label,
+    input,
+    textarea {
+      font-size: 1.7rem;
+      font-family: inherit;
+
+      @include respond(small-phone) {
+        font-size: 1.6rem;
+      }
+    }
+
+    label {
+      //   font-size: 1.7rem;
+    }
+
+    input {
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      //   font-size: 1.7rem;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: $color-grey-dark;
+
+      &:focus {
+        outline: none;
+        border-bottom: 2px solid $color-secondary-light;
+      }
+
+      &:focus:invalid {
+        //ini untuk inform user klo input yang mereka masukkan salah
+        border-bottom: 2px solid red;
+      }
+    }
+
+    select {
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      font-size: inherit;
+
+      option {
+        font-family: inherit;
+        font-size: 1.6rem;
+        color: $color-grey-dark;
+      }
+    }
+
+    textarea {
+      height: 6rem;
+      border: 1px solid #ddd;
+      font-size: 1.6rem;
+      border: none;
+    }
+  }
+}
+
+.btn--close-modal {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  font-size: 4rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}

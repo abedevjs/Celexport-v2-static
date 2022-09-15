@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* it will force the inheritance of box-sizing of their parent */
+}
+
+html {
+  font-size: 62.5%;
+
+  //jd urutannya disini ukuran yang besar duluan ke ukuran yang kecil, karena kita design dr ukuran pc ke hp.
+  // klo kita design dari hp ke pc, jd urutannya dari kecil ke besar. liat video 49, writng media queries
+  //TAPI utk element yg lain, dibalik. dari besar ke kecil
+
+  @include respond(small-phone) {
+    //34.25em 550px
+    font-size: 37%; //6px/16px = 0.375
+  }
+
+  @include respond(phone) {
+    //44em 700px
+    font-size: 44%; //7px/16px = 0.4375
+  }
+
+  @include respond(tab-port) {
+    //56.25em 900px
+    font-size: 50%; // disini saya mau 1rem = 8px. Maka, 8/16 = 0.5
+  }
+
+  @include respond(tab-land) {
+    //75em 1200px
+    //disini saya mau 1rem = 9px. Maka, 9/16 = 0.5625
+    font-size: 56.25%;
+  }
+
+  @include respond(big-desktop) {
+    //112em 1800px
+    //disini saya mau 1rem = 12px. Maka, 12/16 = 0.75
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Aleo", serif;
+  line-height: 1;
+  color: $color-grey-dark; //font color
+  background-color: $color-white;
+  font-weight: 400;
+}
+
+::selection {
+  background-color: $color-primary-light;
+  color: $color-white;
+}

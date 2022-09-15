@@ -1,0 +1,45 @@
+header {
+  height: 6rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+
+  @include respond(phone) {
+    gap: 2.4rem;
+  }
+
+  @include respond(small-phone) {
+    gap: 1.6rem;
+  }
+}
+
+.nav-item {
+  display: inline-block;
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+  font-size: $paragraph-font-size;
+  color: $color-grey-dark;
+  letter-spacing: $letterSpace-paragraph;
+  border-bottom: 2px solid transparent;
+
+  transition: $slow;
+
+  @include respond(phone) {
+    //37.5em
+    font-size: 1.4rem;
+  }
+
+  &:hover,
+  &:active {
+    border-bottom: 2px solid $color-primary-light;
+  }
+}

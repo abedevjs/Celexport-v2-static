@@ -1,0 +1,71 @@
+.heading-primary {
+  font-size: 7.4rem;
+  font-weight: 700;
+  line-height: 1;
+
+  @include respond(tab-land) {
+    //56.25em 900px
+    font-size: 5.2rem; // disini saya mau 1rem = 8px. Maka, 8/16 = 0.5
+  }
+
+  @include respond(tab-port) {
+    //75em 1200px
+    font-size: 4.4rem;
+  }
+
+  @include respond(small-phone) {
+    font-size: 3.6rem;
+  }
+}
+
+.heading-two {
+  font-size: 4.4rem;
+  font-weight: 700;
+
+  @include respond(tab-land) {
+    //75em
+    font-size: 3.6rem;
+  }
+
+  @include respond(tab-port) {
+    //52em
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    //75em
+    font-size: 2.4rem;
+  }
+
+  @include respond(small-phone) {
+    //37.5em 550px
+    font-size: 2rem; //6px/16px = 0.375
+  }
+}
+
+.heading-three {
+  font-size: 1.6rem;
+  letter-spacing: $letterSpace-paragraph;
+  color: $color-primary-light;
+  margin-bottom: 1.5rem;
+
+  @include respond(phone) {
+    //75em
+    font-size: 1.2rem;
+  }
+}
+
+.heading-four {
+  color: inherit;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.heading-five {
+  color: inherit;
+  font-size: 1.8rem;
+}
+
+.highlight {
+  color: $color-primary-dark;
+}

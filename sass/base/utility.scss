@@ -1,0 +1,100 @@
+.margin-top-huge {
+  margin-top: 9.6rem;
+
+  @include respond(tab-port) {
+    //56.25em 900px
+    margin-top: 4.8rem;
+  }
+
+  @include respond(phone) {
+    //56.25em 900px
+    margin-top: 3.2rem;
+  }
+}
+
+.margin-top-big {
+  margin-top: 8rem;
+}
+
+.margin-top-medium {
+  margin-top: 6.4rem;
+}
+
+.margin-top-small {
+  margin-top: 4.8rem;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.margin-bottom-huge {
+  margin-bottom: 9.6rem;
+
+  @include respond(tab-land) {
+    //56.25em 900px
+    margin-bottom: 4.8rem;
+  }
+
+  @include respond(small-phone) {
+    //34.25em 550px
+    margin-bottom: 2.4rem;
+  }
+}
+
+.margin-bottom-big {
+  margin-bottom: 8rem;
+
+  @include respond(tab-port) {
+    //56.25em 900px
+    margin-bottom: 4.8rem;
+  }
+
+  @include respond(phone) {
+    //44em 700px
+    margin-bottom: 1.6rem;
+  }
+
+  @include respond(small-phone) {
+    //34.25em 550px
+    margin-bottom: 1.2rem;
+  }
+}
+
+.margin-bottom-medium {
+  margin-bottom: 6.4rem;
+
+  @include respond(tab-port) {
+    //56.25em 900px
+    margin-bottom: 4.8rem;
+  }
+}
+
+.margin-bottom-small {
+  margin-bottom: 4.8rem;
+
+  @include respond(small-phone) {
+    //34.25em 550px
+    margin-bottom: 2.4rem;
+  }
+}
+
+.margin-bottom-tiny {
+  margin-bottom: 1.2rem;
+}
+
+.margin-right-small {
+  margin-right: 4.8rem;
+
+  @include respond(tab-port) {
+    //56.25em
+    //width less than 900
+    margin-right: 2rem; // disini saya mau 1rem = 8px. Maka, 8/16 = 0.5
+  }
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex: 100%;
+}

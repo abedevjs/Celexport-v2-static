@@ -1,0 +1,47 @@
+.social__icon {
+  height: 3.5rem;
+  width: 3.5rem;
+
+  vertical-align: middle;
+  fill: $color-grey-dark;
+
+  transition: all 0.3s;
+
+  @include respond(tab-port) {
+    //56.25em
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  &--email {
+    margin-right: 0.5rem;
+
+    &:hover,
+    &:active {
+      fill: $color-primary-light; // #db4437
+    }
+  }
+
+  &--whatsapp {
+    margin-right: 0.5rem;
+
+    &:hover,
+    &:active {
+      fill: #25d366;
+    }
+  }
+
+  &--linkedin {
+    &:hover,
+    &:active {
+      fill: #0077b5;
+    }
+  }
+}
+
+.zPatternIcon {
+  cursor: pointer;
+  height: 5rem;
+  color: $color-grey-dark-1;
+  grid-row: 3 / 4;
+}

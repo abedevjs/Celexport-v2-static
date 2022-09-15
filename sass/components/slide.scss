@@ -1,0 +1,107 @@
+.slider {
+  max-width: 100rem;
+  height: 47rem;
+  margin: 0 auto;
+  margin-bottom: 5.4rem;
+  margin-top: 6.4rem;
+
+  overflow: hidden;
+
+  position: relative;
+
+  @include respond(tab-port) {
+    //37.5em 550px
+    margin-bottom: 4.8rem;
+  }
+
+  @include respond(phone) {
+    //37.5em 550px
+    height: 40rem;
+    margin-bottom: -1.6rem;
+    margin-top: 0rem;
+  }
+
+  @include respond(small-phone) {
+    //37.5em 550px
+    height: 37rem;
+  }
+}
+
+.slide {
+  position: absolute;
+
+  top: 0;
+  width: 100%;
+  height: 35rem;
+  transition: transform 1.2s;
+
+  display: flex;
+  justify-content: center;
+}
+
+.slideBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    margin: 0 auto;
+    width: 70%;
+    height: auto;
+    margin-bottom: 1rem;
+    // outline: 0.1rem solid $color-primary-light;
+
+    @include respond(phone) {
+      //44em 700px
+      // height: 24rem;
+      // width: 80%;
+    }
+
+    @include respond(small-phone) {
+      //44em 700px
+      // height: 20rem;
+    }
+  }
+
+  span {
+    font-size: 1.7rem;
+    text-align: center;
+
+    @include respond(tab-port) {
+      font-size: 1.6rem;
+    }
+
+    @include respond(phone) {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  color: $color-primary-light;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3.25rem;
+  cursor: pointer;
+
+  @include respond(small-phone) {
+    //37.5em 550px
+    // top: 30%;
+  }
+
+  &--left {
+    left: 6%;
+    transform: translate(-50%, -50%);
+  }
+
+  &--right {
+    right: 6%;
+    transform: translate(50%, -50%);
+  }
+}
