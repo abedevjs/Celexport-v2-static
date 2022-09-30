@@ -4,6 +4,11 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include respond(tab-port) {
+    //56.25em 900px
+    margin-bottom: 7rem;
+  }
 }
 
 .nav-links {

@@ -26,8 +26,7 @@
       font-weight: 700;
     }
 
-    &--ABCD {
-    }
+    &--ABCD {}
   }
 }
 
@@ -55,7 +54,7 @@
   &__group {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     font-family: "Aleo", serif;
     font-size: 1.7rem;
     gap: 0.5rem;

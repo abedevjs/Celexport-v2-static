@@ -2,15 +2,11 @@
   font-size: 7.4rem;
   font-weight: 700;
   line-height: 1;
-
-  @include respond(tab-land) {
-    //56.25em 900px
-    font-size: 5.2rem; // disini saya mau 1rem = 8px. Maka, 8/16 = 0.5
-  }
+  text-align: left;
 
   @include respond(tab-port) {
     //75em 1200px
-    font-size: 4.4rem;
+    font-size: 5.5rem;
   }
 
   @include respond(small-phone) {

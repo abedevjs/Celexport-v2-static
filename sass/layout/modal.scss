@@ -13,16 +13,16 @@
 
   @include respond(tab-port) {
     //56.25em 900px
-    width: 80rem;
+    width: 90rem;
   }
 
   @include respond(phone) {
-    width: 70rem;
+    width: 90%;
     padding: 3rem;
   }
 
   @include respond(small-phone) {
-    width: 38rem;
+    // width: 38rem;
   }
 
   span {
