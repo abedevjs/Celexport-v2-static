@@ -116,15 +116,40 @@ document.addEventListener('keydown', function (e) {
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
+//!GOOGLE SRIPT for sending Contact Form to my Spread Sheet
 //DISPLAY SPINNER AFTER SUBMITTING CONTACT FORM
 
 const modalForm = document.querySelector('.modal__form');
 const modalContainer = document.querySelector('.modal__container')
 const btnContact = document.querySelector('.btnContact');
+const scriptURL =
+    'https://script.google.com/macros/s/AKfycbzH8g-YjC-h_1Z9rz70roy5HpVkgFAaffoj8j0KGOBeubVZPobb1DgDpejIkqyf6_yc/exec'
+const form = document.forms['celexport-contact']
+const inputName = document.querySelector('.inputName');
+const inputCompany = document.querySelector('.inputCompany');
+const inputEmail = document.querySelector('.inputEmail');
+const inputWhatsapp = document.querySelector('.inputWhatsapp');
+const inputSample = document.querySelector('.inputSample');
+// const inputMessage = document.querySelector('.inputMessage');
 
-modalForm.addEventListener('submit', function (e) {
+const hideAlert = () => {
+    const el = document.querySelector('.alert');
+
+    if (el) el.parentElement.removeChild(el);
+};
+
+const showAlert = (type, msg) => {//Alert klo usr salah kasi msuk pass
+    hideAlert();
+
+    const markup = `<div class="alert alert--${type}">${msg}</div>`;
+
+    document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
+
+    window.setTimeout(hideAlert, 5000);//hide alert after 5sec
+};
+
+form.addEventListener('submit', e => {
     e.preventDefault();
-    console.log('click');
     const spinnerMarkup =
         `
         <div class="spinner">
@@ -140,7 +165,17 @@ modalForm.addEventListener('submit', function (e) {
         `
         <h3 class="heading-three">Request is succesfully delivered!</h3>
         <h5>Please reload the page for other enquiry</h5>
-    `
+    `;
+
+    if (!isNaN(inputName.value) || !isNaN(inputCompany.value) || isNaN(inputWhatsapp.value)) return showAlert('error', 'Please input correct data 😕')
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+            if (response.ok) return showAlert('success', 'Request is succesfully delivered! 😃');
+        })
+        .catch(error => {
+            return showAlert('error', 'Pesan tidak terkirim 😕, coba beberapa saat lagi!')
+        });
 
     btnContact.textContent = 'Waiting...';
 
@@ -158,6 +193,44 @@ modalForm.addEventListener('submit', function (e) {
         modalForm.innerHTML = '';
         modalForm.insertAdjacentHTML("afterbegin", textMarkup);
 
-    }, 4000)
-})
+    }, 4000);
+});
 
+// modalForm.addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     console.log('click');
+//     const spinnerMarkup =
+//         `
+//         <div class="spinner">
+//             <svg>
+//                 <use href="./img/icons.svg#icon-loader"></use>
+//             </svg>
+//         </div>
+//         <h3 class="heading-three">Sending your request...</h3>
+        
+//     `;
+
+//     const textMarkup =
+//         `
+//         <h3 class="heading-three">Request is succesfully delivered!</h3>
+//         <h5>Please reload the page for other enquiry</h5>
+//     `;
+
+//     btnContact.textContent = 'Waiting...';
+
+//     setTimeout(() => {
+//         modalForm.innerHTML = '';
+
+//         modalForm.style.display = 'flex';
+//         modalForm.style.flexDirection = 'column';
+//         modalForm.style.alignItemns = 'center';
+
+//         modalForm.insertAdjacentHTML("afterbegin", spinnerMarkup);
+//     }, 500)
+
+//     setTimeout(() => {
+//         modalForm.innerHTML = '';
+//         modalForm.insertAdjacentHTML("afterbegin", textMarkup);
+
+//     }, 4000)
+// })

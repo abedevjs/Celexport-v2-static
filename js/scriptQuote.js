@@ -41,12 +41,12 @@ const nutmeg = [
         quantity: {
             ton: 1000,
             twentyFCL: 14000,
-            fourtyFCL: 23000
+            fourtyFCL: 24000
         },
         pack: 'Gunny Bag, 50 Kg',
-        price: 120000,//per Rp per Kg
+        price: 127000,//per Rp per Kg
         margin: 0.075,
-        leadTime: 2.2
+        leadTime: 2.8
     },
     {
         initial: 'SS',
@@ -57,13 +57,13 @@ const nutmeg = [
         pol: 'Surabaya',
         quantity: {
             ton: 1000,
-            twentyFCL: 13000,
-            fourtyFCL: 22000
+            twentyFCL: 14000,
+            fourtyFCL: 24000
         },
         pack: 'Gunny Bag, 50 Kg',
-        price: 95000,//per Kg
+        price: 105000,//per Kg
         margin: 0.075,
-        leadTime: 2.5
+        leadTime: 3.8
     },
     {
         initial: 'BWP',
@@ -74,19 +74,19 @@ const nutmeg = [
         pol: 'Surabaya',
         quantity: {
             ton: 1000,
-            twentyFCL: 13000,
-            fourtyFCL: 22000
+            twentyFCL: 14000,
+            fourtyFCL: 24000
         },
         pack: 'Gunny Bag, 50 Kg',
-        price: 72000,//per Kg
+        price: 90000,//per Kg
         margin: 0.075,
-        leadTime: 2.4
+        leadTime: 3.5
     }
 ];
 
 const biaya = {
     packing: {
-        hargaSatuanKarung: 13000,
+        hargaSatuanKarung: 20000,
         ukuranKarung: 50,
         biayaKirimKarung: 10000, //per kg
         hargaSatuanSilica: 2500,
@@ -94,15 +94,16 @@ const biaya = {
     },
 
     inspection: {
-        biayaParameterAnalysis: 2500000,
+        biayaParameterAnalysis: 11000000,
         biayaLoadingSurveyReport: 2500000,
         biayaSample: 3500000
     },
 
     document: {
         BiayaCertificateOrigin: 350000,
-        BiayaCertificatePhytosanitary: 1500000,
-        BiayaCertificateFumigation: 2100000,
+        BiayaCertificatePhytosanitary: 2000000,
+        BiayaCertificateFumigation: 2500000,
+        BiayaHealthCertificate: 2500000,
     },
 
     custom: {
@@ -119,8 +120,8 @@ const biaya = {
         freightSurabaya: 6000000,
         THC20Feet: 2600000,
         THC40Feet: 4200000,
-        container20Feet: 2000000,
-        container40Feet: 4000000
+        container20Feet: 4000000,
+        container40Feet: 6000000
     },
 
     tax: {
@@ -231,13 +232,13 @@ const currencyConverter = async function () {
 
         const data = await res.json();
 
-        if (data.result === "error") return quote.kurs = 14364;
+        if (data.result === "error") return quote.kurs = 14500;
         // if (data.result === "error") return console.log(quote.kurs = 14364);
 
         quote.kurs = +data.conversion_result.toFixed(0) - 80;
 
     } catch (error) {
-        return quote.kurs = 14364;
+        return quote.kurs = 14500;
         // return console.log(quote.kurs = 14364);
     }
 };
@@ -282,7 +283,7 @@ class Calculator {
         this.hargaPokok = quote.curProduct.price * this.weightKg;//120.000*14000kg
         this.hargaJual = totalMargin + this.hargaPokok;//108.000.000 + 1.260.000.000
 
-        console.log(`Kg: ${this.weightKg}, Ton: ${this.weightTon}, Hrg Pokok: ${this.hargaPokok}, Hrg Jual: ${this.hargaJual}`);
+        // console.log(`Kg: ${this.weightKg}, Ton: ${this.weightTon}, Hrg Pokok: ${this.hargaPokok}, Hrg Jual: ${this.hargaJual}`);
 
         return this;
     }
@@ -290,7 +291,7 @@ class Calculator {
     calcLeadTime() {
         this.leadTime = Math.ceil(quote.curProduct.leadTime * this.weightTon);
         quote.leadTime = this.leadTime;
-        console.log(`leadtime: ${this.leadTime}`);
+        // console.log(`leadtime: ${this.leadTime}`);
 
         return this
     }
@@ -307,7 +308,7 @@ class Calculator {
         const biayaTotalSilica = jumlahSilica + biaya.packing.biayaKirimSilica;
 
         this.packing = biayaTotalKarung + biayaTotalSilica
-        console.log(`packing: ${this.packing}`);
+        // console.log(`packing: ${this.packing}`);
         this.localHandling.push(this.packing)
 
         return this;
@@ -316,7 +317,7 @@ class Calculator {
     calcInspection() {
         this.inspection = Object.values(biaya.inspection).reduce((accumulator, value) => accumulator + value, 0);
 
-        console.log(`inspection: ${this.inspection}`);
+        // console.log(`inspection: ${this.inspection}`);
         this.localHandling.push(this.inspection);
 
         return this;
@@ -325,7 +326,7 @@ class Calculator {
     calcDocument() {
         this.document = Object.values(biaya.document).reduce((accumulator, value) => accumulator + value, 0);
 
-        console.log(`documents: ${this.document}`);
+        // console.log(`documents: ${this.document}`);
         this.localHandling.push(this.document)
         return this;
     }
@@ -333,7 +334,7 @@ class Calculator {
     calcCustom() {
         this.custom = Object.values(biaya.custom).reduce((accumulator, value) => accumulator + value, 0);
 
-        console.log(`custom: ${this.custom}`);
+        // console.log(`custom: ${this.custom}`);
         this.localHandling.push(this.custom)
         return this
     }
@@ -344,7 +345,7 @@ class Calculator {
 
         this.localFreight = biaya.localFreight.freightSurabaya + container + thc;
 
-        console.log(`local freight: ${this.localFreight}`);
+        // console.log(`local freight: ${this.localFreight}`);
         this.localHandling.push(this.localFreight)
 
         return this;
@@ -353,7 +354,7 @@ class Calculator {
     calcTax() {
         this.tax = this.hargaPokok * biaya.tax.PPH / 100;
 
-        console.log(`tax: ${this.tax}`);
+        // console.log(`tax: ${this.tax}`);
 
         this.localHandling.push(this.tax)
 
@@ -363,7 +364,7 @@ class Calculator {
     calcExpenses() {
         this.expenses = Object.values(biaya.expenses).reduce((accumulator, value) => accumulator + value, 0);
 
-        console.log(`expenses: ${this.expenses}`);
+        // console.log(`expenses: ${this.expenses}`);
 
         this.localHandling.push(this.expenses)
 
@@ -502,13 +503,14 @@ class View {
                 <div class="quoteLeft">
                     <div class="quoteLeft__list quoteLeft__list--1">
                         <p> Dear <b>${this.data.fullName}</b>,<br><br>
-                        Celexport is pleased to make you the following offer, for which please find our further details below.</p>
+                        Celexport is pleased to make you the following offer. please note this is our temporary quote. <br>
+                        To get the accurate price, kindly contact us.</p>
                         <br>
-                        <p> Quote Number: <b>${this.data.quoteNumber}</b><br>
+                        <!--<p> Quote Number: <b>${this.data.quoteNumber}</b><br>
                         <p> Offer expires At: <b>${this.data.validEnd}</b><br>
-                        <br>
+                        <br></p>
                         Our quotation is valid until the above mentioned offer expiry date. We reserve the right to review and re-quote, if we do not receive
-                        any acceptance confirmation, prior to above mentioned offer expiry date.</p>
+                        any acceptance confirmation, prior to above mentioned offer expiry date.</p> -->
                     </div>
                     <div class="quoteLeft__list quoteLeft__list--2">
                         <h5 class="heading-five highlight">Product Information</h5>
@@ -516,7 +518,8 @@ class View {
                             <li>Name: <b>${this.data.curProduct.name}</b></li>
                             <li>Origin: <b>Maluku Islands, Indonesia</b></li>
                             <li>HS Code: <b>${this.data.curProduct.hsCode}</b></li>
-                            <li>Quality: <a href="#"><b><em>See Product Catalog</em></b></a></li>
+                            <li>Quality: <a target="__blank"
+                            href="https://drive.google.com/file/d/1GMqZ8L3YHKk6i-H4u9_l_iJGWzye2SSX/view?usp=sharing"><b><em>See Product Catalog</em></b></a></li>
                             <li>Loading Plan: <b>${this.data.quantity} x ${this.data.container === 'twentyFCL' ? '20ft FCL' : '40ft FCL'}</b></li>
                             <li>Total Quantity: <b>${this.data.weightTon} Metric Tons</b></li>
                             <li>Est. Lead Time: <b>${this.data.leadTime} days</b> <em>(after payment is confirmed)</em></li>
@@ -526,21 +529,20 @@ class View {
                     <div class="quoteLeft__list quoteLeft__list--3">
                         <h5 class="heading-five highlight">Documents</h5>
                         <ul>
-                            <li>${this.data.incoterms === 'FOB' ? '' : 'Bill of Lading'}</li>
+                            <li>Bill of Lading</li>
                             <li>Invoice</li>
                             <li>Packing List</li>
+                            <li>Health Certificate</li>
                             <li>Certificate of Origin</li>
                             <li>Certificate of Phytosanitary</li>
-                            <li>Certificate of Fumigation</li>
                             <li>Report of Analysis</li>
-                            <li>Loading Survey Report</li>
                             <li>${this.data.incoterms === 'CIF' ? 'Insurance Policy' : ''}</li>
                         </ul>
                     </div>
                         <div class="quoteLeft__list quoteLeft__list--4">
                             <h5 class="heading-five highlight">Payment Method</h5>
                         <ul>
-                            <li><b>${this.data.paymentMethod === 'LC' ? '100% Irrevocable Letter of Credit' : '100% Cash Against Document'}</b></li>
+                            <li><b>${this.data.paymentMethod === 'LC' ? '100% Irrevocable Letter of Credit' : 'Cash Against Document, 30% Advance Payment'}</b></li>
                         </ul>
                     </div>
                     <div class="quoteLeft__list quoteLeft__list--5">
@@ -563,7 +565,7 @@ class View {
                     </div>
 
                     <div class="quoteCTA">
-                        <p>For more quote request please <a href='/quote'><em>reload</em></a>  this page. <br> If you want to proceed further with this offer or have any other enquiries, kindly to contact me.</p>
+                        <p>For more quote request please <a href="quote.html"><em>reload</em></a>  this page. <br> If you want to proceed further with this offer or have any other enquiries, kindly to contact me.</p>
                         <div class="quoteCTA__box">
                             <img src="./img/abe.png" alt="Muhammad Akbar"  class="founder__photo">
                             <div class="quoteCTA__box quoteCTA__box--text">
@@ -592,14 +594,14 @@ class View {
                 </div>
                 <div class="quoteRight">
                     <img src="./img/${this.data.curProduct.initial}.png" alt="quoteRight image">
-                    <div class="quoteRight quoteRight--text">
+                    <!-- <div class="quoteRight quoteRight--text">
                         <p>Quote Number: <b>${this.data.quoteNumber}</b></p>
                         <p>Valid from: <b>${this.data.validStart}</b></p>
                         <p>Valid until: <b>${this.data.validEnd}</b></p>
-                    </div>
+                    </div> -->
                     <div class="quoteRight quoteRight--button">
                         <!-- <p>Send your Quote to <b>FILLING{emaCon.value}</b> ?</p> -->
-                        <button class="btnSubmit" id="btnDownload">Save Quotation</button>
+                        <!-- <button class="btnSubmit" id="btnDownload">Save Quotation</button> -->
                     </div>
                 </div>
             </div>
@@ -646,12 +648,72 @@ const renderQuote = function () {
     view.renderQuote(data);
 };
 
+//*COMMAND TANPA GOOGLE SHEET
+// const init = function () {
+//     const view = new View();
+
+//     //Animate the grade image
+//     view.quoteAnimation()
+//     view.handleBtnForm(getQuote)
+//     view.handleBtnQuote(renderQuote);
+// };
+
+// init();
+
+
+//!GOOGLE SRIPT for sending Contact Form to my Spread Sheet
+
+const scriptURL =
+    'https://script.google.com/macros/s/AKfycbzr6MhGroJs7hLROiinzdiym-gRasiCK4O4tVRaw2UooJSzv8U7DKgf0uHaiBXeXDUt/exec'
+const form = document.forms['celexport-quote']
+const fullName = document.querySelector('.fullName');
+const companyName = document.querySelector('.companyName');
+const email = document.querySelector('.email');
+const quoteNutmegGrade = document.querySelector('.quoteNutmegGrade');
+const quoteQuantity = document.querySelector('.quoteQuantity');
+const quoteContainer = document.querySelector('.quoteContainer');
+const quoteIncoterm = document.querySelector('.quoteIncoterm');
+const quotePOD = document.querySelector('.quotePOD');
+const quoteCountry = document.querySelector('.quoteCountry');
+const quotePayment = document.querySelector('.quotePayment');
+
+const hideAlert = () => {
+    const el = document.querySelector('.alert');
+
+    if (el) el.parentElement.removeChild(el);
+};
+
+const showAlert = (type, msg) => {//Alert klo usr salah kasi msuk pass
+    hideAlert();
+
+    const markup = `<div class="alert alert--${type}">${msg}</div>`;
+
+    document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
+
+    window.setTimeout(hideAlert, 5000);//hide alert after 5sec
+};
+
 const init = function () {
     const view = new View();
 
-    //Animate the grade image
-    view.quoteAnimation()
-    view.handleBtnForm(getQuote)
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        quoteNutmegGrade.value = DOM.nutmegGrade.textContent;
+        // if (!isNaN(fullName.value) || !isNaN(companyName.value)) return showAlert('error', 'Please input correct data 😕')
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                // if (response.ok) return showAlert('success', 'Request is succesfully delivered! 😃');
+                if (response.ok) return;
+            })
+            .catch(error => {
+                return showAlert('error', 'We are unable to process your request 😕. Please try again later!')
+            });
+    });
+
+    view.quoteAnimation();
+    view.handleBtnForm(getQuote);
     view.handleBtnQuote(renderQuote);
 };
 

@@ -105,7 +105,7 @@
                 <div class="showProduct">
                     <p class="showProduct showProduct__tag">nutmeg <span class="highlight">ABCD</span></p>
                     <img src="./img/ABCD.png" class="showProduct showProduct__img showProduct__img--1" alt="abcd1">
-                    <img src="./img/abcd2.png" class="showProduct showProduct__img showProduct__img--2" alt="abcd2">
+                    <img src="./img/abcd2.jpg" class="showProduct showProduct__img showProduct__img--2" alt="abcd2">
                     <p class="showProduct showProduct__text">This type of Nutmeg has a smooth surface without any
                         defect. It is commonly used as a standard in food industry.</p>
                 </div>
@@ -133,7 +133,7 @@
                                     4. Aflatoxin B1: 5μg / Kg Max <br>
                                     5. Sum of Aflatoxin B1, B2, G1, G2: 10μg / Kg Max <br>
                                     6. Ochratoxin A: 15μg / Kg Max <br>
-                                    7. Pesticides. Chlorpyrifos and Chlorpyrifos-methyl: 0.01 mg/kg Max
+                                    7. Pesticides. Chlorpyrifos and Chlorpyrifos-methyl: 0.01 mg/kg Max <br>
                                     8. Avg. Weight (gram): 5 - 7.5 (Relatively Heavy) <br>
                                 </td>
                             </tr>
@@ -191,7 +191,7 @@
                                     4. Aflatoxin B1: 5μg / Kg Max <br>
                                     5. Sum of Aflatoxin B1, B2, G1, G2: 10μg / Kg Max <br>
                                     6. Ochratoxin A: 15μg / Kg Max <br>
-                                    7. Pesticides. Chlorpyrifos and Chlorpyrifos-methyl: 0.01 mg/kg Max
+                                    7. Pesticides. Chlorpyrifos and Chlorpyrifos-methyl: 0.01 mg/kg Max <br>
                                     8. Avg. Weight (gram): 3.7 - 4.9 (Relatively Light) <br>
                                 </td>
                             </tr>
@@ -219,7 +219,7 @@
                 <div class="showProduct" id="id-catalog">
                     <p class="showProduct showProduct__tag">nutmeg <span class="highlight">BWP</span></p>
                     <img src="./img/BWP.png" class="showProduct showProduct__img showProduct__img--1" alt="bwp1">
-                    <img src="./img/bwp2.png" class="showProduct showProduct__img showProduct__img--2" alt="bwp2">
+                    <img src="./img/bwp2.jpg" class="showProduct showProduct__img showProduct__img--2" alt="bwp2">
                     <p class="showProduct showProduct__text">This quality is in split form or defect. Commonly processed
                         into essentials oils, nutmeg’s oleoresin, nutmeg butter, or ground nutmeg.</p>
                 </div>
@@ -291,7 +291,7 @@
                 </div>
                 <div class="slide">
                     <div class="slideBox">
-                        <img src="./img/slide3.jpeg" alt="fotoslide">
+                        <img src="./img/Slide3.jpg" alt="fotoslide">
                         <span>The young and mature unshelled nutmeg covered with mace comparison</span>
                     </div>
                 </div>
@@ -491,29 +491,41 @@
         <div class="modal__container">
             <div class="modal__download">
                 <span class="highlight">Download Section</span>
-                <a href="#">Company Profile</a>
-                <a href="#">Business License</a>
-                <a href="#">Nutmeg Product Catalog</a>
-                <a href="#">Nutmeg Report of Analysis</a>
+                <a target="__blank"
+                    href="https://drive.google.com/file/d/1_yRV44Z-rDIME0JcYevgJAZQjeuYDx1R/view?usp=sharing">Company
+                    Profile</a>
+                <a target="__blank"
+                    href="https://drive.google.com/file/d/1FbwUqQug2FQWDPVLHr98TzyuBxcSO70P/view?usp=sharing">Business
+                    License</a>
+                <a target="__blank"
+                    href="https://drive.google.com/file/d/1GMqZ8L3YHKk6i-H4u9_l_iJGWzye2SSX/view?usp=sharing">Nutmeg
+                    Product Catalog</a>
+                <a target="__blank"
+                    href="https://drive.google.com/file/d/18hV-WO29kmtZANtDM_JzkoRxUQRr6OIj/view?usp=sharing">Nutmeg
+                    Report of Analysis 1</a>
+                <a target="__blank"
+                    href="https://drive.google.com/file/d/1s59Ll_imJIIPG6lNEq13cLWvtuCYKLiA/view?usp=sharing">Nutmeg
+                    Report of Analysis 2</a>
             </div>
-            <form class="modal__form">
+            <form class="modal__form" name="celexport-contact">
                 <label>Full Name</label>
-                <input type="text" required>
+                <input type="text" name="nama" class="inputName" required>
                 <label>Company Name</label>
-                <input type="text" required>
+                <input type="text" name="company" class="inputCompany" required>
                 <label>Email Address</label>
-                <input type="email" required>
+                <input type="email" name="email" class="inputEmail" required>
+                <label>WhatsApp Number</label>
+                <input type="text" name="whatsapp" class="inputWhatsapp" required>
                 <label>Sample</label>
-                <select required>
+                <select name="sample" class="inputSample" required>
                     <option value>Select Nutmeg Grade</option>
                     <option value="abcd">ABCD</option>
                     <option value="ss">SS</option>
                     <option value="bwp">BWP</option>
                     <option value="all">All Grades</option>
-                    <option value="none">None (I have other enquiry)</option>
                 </select>
-                <label>Your Message</label>
-                <textarea name="message" id="message" class=""></textarea>
+                <!-- <label>Your Message</label> -->
+                <!-- <textarea name="message" id="message" class="inputMessage" name="message"></textarea> -->
                 <button class="btnSubmit btnContact">Submit</button>
             </form>
         </div>

@@ -29,10 +29,17 @@
 
 <body>
     <header class="margin-bottom-medium">
-        <nav class="nav">
+        <a href="index.html" class="linkBack">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M21 11H6.414l5.293-5.293l-1.414-1.414L2.586 12l7.707 7.707l1.414-1.414L6.414 13H21z" />
+            </svg>
+            <span>Back to Home</span>
+        </a>
+        <!-- <nav class="nav">
             <ul class="nav-links">
                 <li>
-                    <a class="nav-item" href="#id-product">PRODUCT</a>
+                    <a class="nav-item" href="index.html/#id-product">PRODUCT</a>
                 </li>
                 <li>
                     <a class="nav-item" href="#id-activity">ACTIVITY</a>
@@ -45,7 +52,7 @@
                 </li>
 
             </ul>
-        </nav>
+        </nav> -->
     </header>
     <main>
         <section class="section-quote">
@@ -69,19 +76,21 @@
             </div>
 
 
-            <form class="formContainer">
+            <form class="formContainer" name="celexport-quote">
                 <h4 class="heading-four">Fill the form</h4>
                 <div class="formContainer__group">
                     <p>Grade:</p>
                     <span class="highlight nutmegGrade">Nutmeg</span>
+                    <input type="text" name="quoteNutmegGrade" class="quoteNutmegGrade">
                 </div>
                 <div class="formContainer__group">
                     <label>Quantity</label>
-                    <input type="number" min="1" max="5" id="quantity" required>
+                    <input type="number" min="1" max="5" id="quantity" name="quoteQuantity" class="quoteQuantity"
+                        required>
                 </div>
                 <div class="formContainer__group">
                     <label>Container</label>
-                    <select id="container" required>
+                    <select id="container" name="quoteContainer" class="quoteContainer" required>
                         <option value>Select Container</option>
                         <option value="twentyFCL">20' FCL</option>
                         <option value="fourtyFCL">40' FCL</option>
@@ -89,7 +98,7 @@
                 </div>
                 <div class="formContainer__group">
                     <label>Incoterms</label>
-                    <select id="incoterms" required>
+                    <select id="incoterms" name="quoteIncoterm" class="quoteIncoterm" required>
                         <option value>Select Incoterms</option>
                         <option value="FOB">FOB</option>
                         <option value="CFR">CFR</option>
@@ -98,11 +107,11 @@
                 </div>
                 <div class="formContainer__group">
                     <label>Port of Discharge</label>
-                    <input type="text" id="portDischarge" required>
+                    <input type="text" id="portDischarge" name="quotePOD" class="quotePOD" required>
                 </div>
                 <div class="formContainer__group">
                     <label>Country</label>
-                    <select id="country">
+                    <select id="country" name="quoteCountry" class="quoteCountry">
                         <option value>Select Country</option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
@@ -291,23 +300,23 @@
                 </div>
                 <div class="formContainer__group">
                     <label>Payment Method</label>
-                    <select id="paymentMethod" required>
+                    <select id="paymentMethod" name="quotePayment" class="quotePayment" required>
                         <option value>Select Payment</option>
                         <option value="LC">100% Irrevocable Letter of Credit</option>
-                        <option value="CAD">100% Cash Against Document</option>
+                        <option value="CAD">CAD, 30% Advance Payment</option>
                     </select>
                 </div>
                 <div class="formContainer__group">
                     <label>Full Name</label>
-                    <input type="text" id="fullName" required>
+                    <input type="text" id="fullName" name="fullName" class="fullName" required>
                 </div>
                 <div class="formContainer__group">
                     <label>Company Name</label>
-                    <input type="text" id="companyName" required>
+                    <input type="text" id="companyName" name="companyName" class="companyName" required>
                 </div>
                 <div class="formContainer__group">
                     <label>Email Address</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" name="email" class="email" required>
                 </div>
                 <button class="btnSubmit">Submit</button>
             </form>
